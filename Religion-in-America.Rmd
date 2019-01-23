@@ -1,0 +1,20 @@
+---
+title: "Religion-in-America"
+author: "Mark Hand"
+date: "1/23/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+There are ??? churches in the United States, from some ??? denominations []. What do they think? How are they similar, and how do they differ? The fault lines that divide Christians today--gay marriage, women in leadership positions--aren't the same that caused denominations to split in the past. 
+
+Perhaps, then, there are some denominations that have more similar beliefs than their current positions on the Christian family tree might suggest. What if we could unearth denominations that are similar enough that they might want to work together--or perhaps even merge? 
+
+In 2014, the Pew Research Center's [Forum on Religion & Public Life](http://www.pewforum.org/) conducted a country-wide survey of religious belief in the United States. Pew researchers asked people all kinds of questions. They about their beliefs on everything from heaven and hell to abortion, and they asked about their religious practices, from attendace at religious services to how often they read religious texts. 
+
+Thankfully for nerds, Pew does a wonderful job of making their data available to the public, meaning that in addition to reading [the content](http://www.pewforum.org/religious-landscape-study/) they wrote using the data, we can play with the data ourselves. I downloaded their religious surveys data from 
+
+[http://www.pewforum.org/datasets/](http://www.pewforum.org/datasets/), then started playing around with the data in RStudio. What you're looking at now is called an RMarkdown document; 
