@@ -50,7 +50,7 @@ Machine learning techniques, and especially one kind of learning called unsuperv
 # names(pew)
 # Looking at codebook and dataset together suggests: 
 # - qa1:qb31 (then omit affiliation questions)
-# - born (then omit )
+# - born (then omit)
 # - attend:q14d
 # - qk10:qm5g (then omit demographic and non-religious belief questions) 
 
@@ -96,13 +96,10 @@ plot(hc.complete, labels=pew.labels, main="Complete Linkage", xlab="", sub="", y
 # Hold off on these
 # plot(hc.average, main="Average Linkage", xlab="", sub="", cex =.9)
 # plot(hc.single, main="Single Linkage", xlab="", sub="", cex =.9)
+
+# https://stackoverflow.com/questions/33067547/how-to-substitute-na-by-0-in-20-columns 
+# ? 
 ```
-
-```{r }
-
-```
-
-
 
 # Coming up 
 
