@@ -1,0 +1,16 @@
+---
+title: "Wraptext text"
+author: "Mark Hand"
+date: "2/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![(From some reddit post)](http://flowingdata.com/wp-content/uploads/2012/06/label-your-axes.png, position="float_right")
+
+Welcome to Data Visualization in R! We'll be using a dataset from the Pew Research Center's [Forum on Religion & Public Life](http://www.pewforum.org/), which is a country-wide survey from 2014 Americans' religious beliefs. You can download that data here: 
+
+[http://www.pewforum.org/datasets/](http://www.pewforum.org/datasets/)
