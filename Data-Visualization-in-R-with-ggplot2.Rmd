@@ -225,7 +225,11 @@ p + transition_states(agerec2)
 ```
 
 ```{r gganimate, warning=FALSE}
-library(gganimate)
+library(gganimate) # for animation
+library(gifski) # Because the warning messages said so
+library(png) # See above
+library(magick) # for exporting animations  
+
 p <- ggplot(subset(pew, agerec2!="NA" & ideo2!="NA"), aes(ideo2, fill = ideo2)) + 
   geom_bar() + 
   coord_flip() + 
@@ -238,6 +242,14 @@ p <- ggplot(subset(pew, agerec2!="NA" & ideo2!="NA"), aes(ideo2, fill = ideo2)) 
 p + transition_states(agerec2) +
   labs(title = "Americans' Ideology by Age: {closest_state}") 
 ```
+
+```{r exporting for twitter, include = FALSE}
+anim <- p + transition_states(agerec2) +
+  labs(title = "Americans' Ideology by Age: {closest_state}") 
+
+anim_save("ideology.gif", anim)
+```
+
 
 ## Some other (R)esouces
 
