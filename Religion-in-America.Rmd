@@ -1,5 +1,5 @@
 ---
-title: "A New Christian Family Tree"
+title: "A New Christian Family Tree?"
 author: "Mark Hand and ?"
 date: "1/23/2019"
 output: html_document
@@ -17,14 +17,16 @@ In February of 2019, the United Methodist Church held a meeting in St. Louis to 
 
 A few thousand years prior, the Jewish sect that would become the Christian church was arguing about a very different question: Should  non-Jewish men be allowed to convert to Christianity without undergoing Jewish rituals, including the (very painful) ritual of male circumcision? 
 
-The early church settled that debate, but for the next two thousand years, the story of Christianity would be a series of splits, both attempted and successful, over questions of both doctrine and authority. Some of those issues remain live wires. Others, however--like whether to circumcise Gentiles, or whether one should be able to rent a pew in church--are either long settled or irrelevant. Yet those historical splits, however, still shape the landscape of Christian denominations today. Here are just some of the Baptists:
+The early church settled that debate, but for the next two thousand years, the story of Christianity would be a series of splits, both attempted and successful, over questions of both doctrine and authority. Some of those issues remain live wires. Others, however--like whether to circumcise Gentiles, or whether one should be able to rent a pew in church--are either long settled or irrelevant. Yet those historical splits, however, still shape the landscape of Christian denominations today.[^ARDA] Here are just some of the Baptists:
+
+[^ARDA]: See http://thearda.com/denoms/families/trees/, which is probably what a tree should be built from. 
 
 ![](collateral/World Religions Tree_files/religions_tree_8_30.png)
 
 
 ... and some of the Methodists: 
 
-![](collateral/World Religions Tree_files/religions_tree_8_54.png)
+![(Source: Some random Russian blog https://000024.org/religions_tree/religions_tree_8.html)](collateral/World Religions Tree_files/religions_tree_8_54.png)
 
 Perhaps there are some denominations that have more similar beliefs than their current positions on the Christian family tree might suggest. Is it possible to put back together what previous Christians have torn apart? To help denominations with similar belief sets find each other, work together and--maybe, just maybe--merge?
 
