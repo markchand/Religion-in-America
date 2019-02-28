@@ -1,51 +1,50 @@
 ---
-title: "Religion-in-America"
-author: "Mark Hand"
+title: "A New Christian Family Tree"
+author: "Mark Hand and ?"
 date: "1/23/2019"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-#setup
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+setwd("~/Documents/GitHub/Religion-in-America")
 
-#For data wrangling
-library(tidyverse)
+library(tidyverse) # For data wrangling
+library(haven) # For data import 
 ```
 
-There are [?] churches in the United States, from some [?] denominations [Source]. What do they think? How are they similar, and how do they differ? The fault lines that divide Christians today--gay marriage, women in leadership positions--aren't the same that caused denominations to split in the past. 
+In February of 2019, the United Methodist Church held a meeting in St. Louis to vote on whether clergy should be allowed to marry gay couples, or be gay themselves. The result, many fear, is that the church will split in two, as have the Anglicans and Presbyterians before them. 
 
-Perhaps, then, there are some denominations that have more similar beliefs than their current positions on the Christian family tree might suggest. What if we could unearth denominations that are similar enough that they might want to work together--or perhaps even merge? 
+A few thousand years prior, the Jewish sect that would become the Christian church was arguing about a very different question: Should  non-Jewish men be allowed to convert to Christianity without undergoing Jewish rituals, including the (very painful) ritual of male circumcision? 
 
-# Machine Learning, Human Beliefs 
+The early church settled that debate, but for the next two thousand years, the story of Christianity would be a series of splits, both attempted and successful, over questions of both doctrine and authority. Some of those issues remain live wires. Others, however--like whether to circumcise Gentiles, or whether one should be able to rent a pew in church--are either long settled or irrelevant. Yet those historical splits, however, still shape the landscape of Christian denominations today. Here are just some of the Baptists:
 
-In 2014, the Pew Research Center's [Forum on Religion & Public Life](http://www.pewforum.org/) conducted a country-wide survey of religious belief in the United States. Pew researchers asked people all kinds of questions. They about their beliefs on everything from heaven and hell to abortion, and they asked about their religious practices, from attendace at religious services to how often they read religious texts. 
+![](collateral/World Religions Tree_files/religions_tree_8_30.png)
 
-Thankfully for nerds, Pew does a wonderful job of making their data available to the public, meaning that in addition to reading [the content](http://www.pewforum.org/religious-landscape-study/) they wrote using the data, we can play with the data ourselves. I downloaded their religious surveys data from 
 
-[http://www.pewforum.org/datasets/](http://www.pewforum.org/datasets/)
+... and some of the Methodists: 
 
-Then I started playing around with the data in RStudio. What you're looking at now is called an RMarkdown document; it's stored in a sort of Dropbox-for-programmers called GitHub. Here is the homepage for this project: 
+![](collateral/World Religions Tree_files/religions_tree_8_54.png)
 
-[https://github.com/markchand/Religion-in-America](https://github.com/markchand/Religion-in-America)
+Perhaps there are some denominations that have more similar beliefs than their current positions on the Christian family tree might suggest. Is it possible to put back together what previous Christians have torn apart? To help denominations with similar belief sets find each other, work together and--maybe, just maybe--merge?
 
-If you'd like to look at what I did, you'll find data sets and code there. 
+It just might be that data could help us get there. In 2014, the Pew Research Center's [Forum on Religion & Public Life](http://www.pewforum.org/) conducted a country-wide survey of religious belief in the United States. Pew researchers asked people all kinds of questions. They about their beliefs on everything from heaven and hell to abortion, and they asked about their religious practices, from attendace at religious services to how often they read religious texts. 
+
+Thankfully for nerds, Pew does a wonderful job of [making their data available to the public](http://www.pewforum.org/datasets/), meaning that in addition to reading [the reports](http://www.pewforum.org/religious-landscape-study/) they write using the data, we can play with the data ourselves.
 
 ```{r data}
-### First step: Importing data 
-
-# This package helps us import data 
-library(haven) 
-
-# This command imports the data 
-pew <- read_sav("Pew-Research-Center-2014-U.S.-Religious-Landscape-Study/Dataset - Pew Research Center 2014 Religious Landscape Study National Telephone Survey - Version 1.1 - December 1 2016.sav")
+pew <- read_sav("data/Pew-Research-Center-2014-U.S.-Religious-Landscape-Study/Dataset - Pew Research Center 2014 Religious Landscape Study National Telephone Survey - Version 1.1 - December 1 2016.sav")
 ```
 
 Pew interviewed over 35,000 people in 2015, and asked them dozens of questions. With a dataset that large, it makes sense to use a set of techniques called [machine learning](https://markclaytonhand.com/2018/12/11/python-for-beginners-part-ii-a-little-bit-about-machine-learning-but-dont-panic/). 
 
-Machine learning techniques, and especially one kind of learning called unsupervised learning, lets us look for patterns in the data. 
+Machine learning techniques let us look for patterns in the data that might not otherwise exist. One kind of methods is called "trees", which locates and labels splits in the data. 
 
-```{r Belief and Practice}
+# A New Christian Family Tree? 
+
+[Section here about trees. Build tree, identify current splits, identify denominations and faiths that are surprisingly similar]
+
+```{r Belief and Practice, eval=FALSE}
 # Choose subsets of questions with which to cluster respondents 
 # names(pew)
 # Looking at codebook and dataset together suggests: 
@@ -68,14 +67,7 @@ pew.small$DENOM <- pew.labels
 #Messy, but I think that will work. 
 ``` 
 
-First step: K-means. This (I think) lets the computer decide which groups to form based on the variables you give it. 
-
-```{r kmeans}
-km.out=kmeans(pew.small,3,nstart=100)
-# Immediate issue: kmeans doesn't work on observations with NAs, and every observation in this dataset has NAs in it. 
-```
-
-```{r hierarchical}
+```{r hierarchical, eval=FALSE}
 hc.complete=hclust(dist(pew.small[pew.data]), method="complete")
 
 # What does this do? Cut the tree? 
@@ -101,17 +93,24 @@ plot(hc.complete, labels=pew.labels, main="Complete Linkage", xlab="", sub="", y
 # ? 
 ```
 
-# Coming up 
+# Insert Clever Biblical Sounding Title About Clustering 
 
-- Patterns in religious belief
- - K-means (how to label?) 
- - Hierarchical (Does this create a treee? Compare to historical tree?)
-  - Then layering back in denominations 
-- Which groups should merge
-- Other interesting threads 
-  - Race
-  - Catholicism
-  - Region 
-  - Politics
-  - Whether someone knows someone who is gay 
-  - Economics 
+A second set of machine learning methods, called clustering, looks for patterns in the data that lets us group people together. 
+
+[Section here about k-means clustering, what they are, the results, and what those implications are]
+
+```{r kmeans, eval=FALSE}
+# km.out=kmeans(pew.small,3,nstart=100)
+# Immediate issue: kmeans doesn't work on observations with NAs, and every observation in this dataset has NAs in it. 
+```
+
+
+# Some other stuff to explore 
+
+- Race
+- Methodists (can we *see* the difference among Methodists, split them into two groups, and then suggest other faiths that the two halves would have an affinity with?)
+- Catholicism (what to do with Catholics?)
+- Region (could similar-enough groups merge based on lack of regional overlap?)
+- Politics 
+- Whether someone knows someone who is gay (a specific question in the survey)
+- Economics 
